@@ -1,4 +1,4 @@
-{ pkgs ? import ./nixpkgs {}, extensions ? []}:
+{ pkgs ? import ./nixpkgs {}, ipython_genutils, jupyterlab_launcher, jupyterlab_server, notebook, extensions ? []}:
 
 let
    linkerCommand = pkgs.stdenv.lib.concatMapStrings
@@ -15,6 +15,10 @@ pkgs.stdenv.mkDerivation {
 
   buildInputs = [ pkgs.python36Packages.jupyterlab
                   pkgs.nodejs] ++ extensions;
+
+  propagatedBuildInputs = [
+    pkgs.python36Packages.jupyterlab
+  ];
 
   buildPhase = ''
     echo "linkerCommand:"
