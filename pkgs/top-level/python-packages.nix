@@ -1800,6 +1800,8 @@ in {
 
   jupyterlab_launcher = callPackage ../development/python-modules/jupyterlab_launcher { };
 
+  jupyterlab_server = callPackage ../development/python-modules/jupyterlab_server { };
+
   jupyterlab = callPackage ../development/python-modules/jupyterlab {};
 
   PyLTI = callPackage ../development/python-modules/pylti { };
